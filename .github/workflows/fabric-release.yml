@@ -1,4 +1,4 @@
-name: Build and Release Fabric 1.21
+name: Build and Release Fabric
 
 on:
   workflow_dispatch:
@@ -21,10 +21,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      - name: Set up JDKs
         uses: actions/setup-java@v4
         with:
-          java-version: '21'
+          java-version: |
+            17
+            21
           distribution: 'temurin'
 
       - name: Setup Gradle
@@ -33,15 +35,15 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Build Fabric 1.21.1
-        run: ./gradlew :fabric:1.21.1:build
+      - name: Build All Fabric Versions
+        run: ./gradlew :fabric:build
 
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           name: Release ${{ inputs.tag_name || github.ref_name }}
           tag_name: ${{ inputs.tag_name || github.ref_name }}
-          files: fabric/versions/1.21.1/build/libs/*.jar
+          files: fabric/versions/*/build/libs/*.jar
           fail_on_unmatched_files: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

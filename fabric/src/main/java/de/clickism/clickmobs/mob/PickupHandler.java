@@ -101,9 +101,7 @@ public class PickupHandler {
         ItemStack itemStack = Items.PLAYER_HEAD.getDefaultStack();
         writeCustomData(itemStack, nbt);
         formatItem(itemStack, name.copy().fillStyle(Style.EMPTY.withItalic(false).withColor(Formatting.YELLOW)),
-                List.of(Text.literal("Right click to place the ")
-                        .append(Text.literal(entityName))
-                        .append(" back.")
+                List.of(Text.translatable("clickmobs.mob.lore", entityName)
                         .fillStyle(Style.EMPTY.withItalic(false).withColor(Formatting.DARK_GRAY)))
         );
         return itemStack;
@@ -185,7 +183,7 @@ public class PickupHandler {
         }
         Text name = entity.getType().getName();
         if (entity instanceof MobEntity mob && mob.isBaby()) {
-            return Text.literal("Baby ").append(name);
+            return Text.translatable("clickmobs.baby_mob", name);
         }
         return name.copy();
     }
@@ -195,9 +193,8 @@ public class PickupHandler {
     }
 
     public static void notifyPickup(PlayerEntity player, Entity entity) {
-        String name = entity.getType().getName().getString().toLowerCase();
-        MessageType.PICKUP_MESSAGE.sendActionbarSilently(player, Text.literal("You picked up a ")
-                .append(Text.literal(name)));
+        Text name = entity.getType().getName();
+        MessageType.PICKUP_MESSAGE.sendActionbarSilently(player, Text.translatable("clickmobs.pick_up", name));
         ServerWorld world = (ServerWorld) VersionHelper.getWorld(player);
         double x = entity.getX();
         double y = entity.getY() + .25f;

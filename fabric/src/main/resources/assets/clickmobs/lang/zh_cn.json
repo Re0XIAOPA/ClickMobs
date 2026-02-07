@@ -1,0 +1,11 @@
+{
+  "clickmobs.update": "ClickMobs: 发现新版本: %s",
+  "clickmobs.pick_up": "你捡起了 %s",
+  "clickmobs.blacklisted_mob": "你不能捡起这个生物",
+  "clickmobs.baby_mob": "幼年 %s",
+  "clickmobs.mob.lore": "右键点击以放回 %s。",
+  "clickmobs.config_set": "§a配置项 \"§l%s§a\" 已设置为 §l%s。",
+  "clickmobs.config_get": "§a配置项 \"§l%s§a\" 的值为 §l%s。",
+  "clickmobs.config_path": "§a配置文件位于: §f%s",
+  "clickmobs.config_reload": "§a配置文件已重载。"
+}

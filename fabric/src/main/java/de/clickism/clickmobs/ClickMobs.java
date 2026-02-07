@@ -53,16 +53,16 @@ public class ClickMobs implements ModInitializer {
                     .requires(VersionHelper::isOp)
                     .then(FabricCommandAdapter.ofConfig(CONFIG)
                             .add(new SetCommand((sender, key, value) -> {
-                                MessageType.CONFIG.send(sender, Text.literal("§aConfig option \"§l" + key + "§a\" set to §l" + value + "."));
+                                MessageType.CONFIG.send(sender, Text.translatable("clickmobs.config_set", key, value));
                             }))
                             .add(new GetCommand((sender, key, value) -> {
-                                MessageType.CONFIG.send(sender, Text.literal("§aConfig option \"§l" + key + "§a\" has value §l" + value + "."));
+                                MessageType.CONFIG.send(sender, Text.translatable("clickmobs.config_get", key, value));
                             }))
                             .add(new ReloadCommand(sender -> {
-                                MessageType.CONFIG.send(sender, Text.literal("§aReloaded the config file."));
+                                MessageType.CONFIG.send(sender, Text.translatable("clickmobs.config_reload"));
                             }))
                             .add(new PathCommand((sender, path) -> {
-                                MessageType.CONFIG.send(sender, Text.literal("§aThe config file is located at: §f" + path));
+                                MessageType.CONFIG.send(sender, Text.translatable("clickmobs.config_path", path));
                             }))
                             .buildRoot()
                     )

@@ -38,7 +38,6 @@ public class UpdateNotifier implements ServerPlayConnectionEvents.Join {
         if (notifiedPlayers.contains(player.getUuid())) return;
         notifiedPlayers.add(player.getUuid());
         if (!VersionHelper.isOp(player)) return;
-        MessageType.WARN.send(player, Text.literal("ClickMobs: Newer version available: ")
-                .append(Text.of(newerVersion)));
+        MessageType.WARN.send(player, Text.translatable("clickmobs.update", newerVersion));
     }
 }

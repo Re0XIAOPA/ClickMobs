@@ -1,0 +1,11 @@
+{
+  "clickmobs.update": "ClickMobs: Newer version available: %s",
+  "clickmobs.pick_up": "You picked up a %s",
+  "clickmobs.blacklisted_mob": "You can't pick up this mob",
+  "clickmobs.baby_mob": "Baby %s",
+  "clickmobs.mob.lore": "Right click to place the %s back.",
+  "clickmobs.config_set": "§aConfig option \"§l%s§a\" set to §l%s.",
+  "clickmobs.config_get": "§aConfig option \"§l%s§a\" has value §l%s.",
+  "clickmobs.config_path": "§aThe config file is located at: §f%s",
+  "clickmobs.config_reload": "§aReloaded the config file."
+}

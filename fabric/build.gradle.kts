@@ -3,7 +3,7 @@ plugins {
 	id("me.modmuss50.mod-publish-plugin") version "0.8.4"
 }
 
-version = "${parent?.name}-${property("mod.version")}+${stonecutter.current.project}"
+version = "${property("mod.version")}+${stonecutter.current.project}"
 group = project.property("maven_group").toString()
 
 base {
@@ -26,7 +26,7 @@ dependencies {
 	implementation(include("de.clickism:configured-core:${configuredVersion}")!!)
 	implementation(include("de.clickism:configured-yaml:${configuredVersion}")!!)
 	implementation(include("de.clickism:configured-json:${configuredVersion}")!!)
-	modImplementation(include("de.clickism:configured-fabric-command-adapter:${configuredVersion}")!!)
+	implementation(include("de.clickism:configured-fabric-command-adapter:${configuredVersion}")!!)
 	// Configured Dependency
 	implementation(include("org.yaml:snakeyaml:2.0")!!)
 }
